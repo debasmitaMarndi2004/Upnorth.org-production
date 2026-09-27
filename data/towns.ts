@@ -1,0 +1,24 @@
+import { img } from '@/lib/images';
+export type Town = { slug: string; name: string; county: string; blurb: string; intro: string; lakes: string[]; knownFor: string; nearest: string; nearby: string[]; image?: string };
+const T = (slug: string, name: string, county: string, blurb: string, intro: string, lakes: string, knownFor: string, nearest: string, nearby: string): Town =>
+  ({ slug, name, county, blurb, intro, lakes: lakes.split(', '), knownFor, nearest, nearby: nearby.split(',') });
+export const towns: Town[] = [
+  T('minocqua', 'Minocqua', 'Oneida', 'The Island City', 'Minocqua sits on an island in a chain of lakes, and the town runs on boats, brats, and long evenings at Torpy Park. Come for the water-ski show, stay for the supper clubs.', 'Lake Minocqua, Kawaguesaga, Tomahawk Lake', 'Chain-of-lakes "Island City," water-ski shows, Min-Aqua Bats', 'Rhinelander (30 min)', 'rhinelander,manitowish-waters,boulder-junction'),
+  T('eagle-river', 'Eagle River', 'Vilas', 'Snowmobile capital of the world', 'Eagle River claims the snowmobile capital title and backs it with hundreds of miles of groomed trail. Summer belongs to the 28-lake Eagle River Chain and a Main Street built for ice cream.', 'Eagle River Chain, Catfish Lake, Lac Vieux Desert', 'Snowmobile trails, the 28-lake Chain, sled dog races', 'Rhinelander (35 min)', 'land-o-lakes,presque-isle,rhinelander'),
+  T('boulder-junction', 'Boulder Junction', 'Vilas', 'Musky Capital of the World', 'With more than 200 lakes within ten miles, Boulder Junction earned its title as Musky Capital of the World. Hire a guide, fish the weed edges, then trade stories at the Sunken Stump.', 'Trout Lake, Boulder Lake, Little John Lake', 'Musky fishing, Northern Highland State Forest, bike trails', 'Minocqua (30 min)', 'manitowish-waters,minocqua,presque-isle'),
+  T('presque-isle', 'Presque Isle', 'Vilas', 'Dark skies and quiet water', 'Presque Isle is the far north end of Vilas County, ringed by state forest and thin on streetlights. On a clear night the Milky Way spills over Presque Isle Lake.', 'Presque Isle Lake, Van Vliet Lake, Big Arbor Vitae', 'Dark skies, remote paddling, walleye and musky', 'Land O’Lakes (25 min)', 'land-o-lakes,boulder-junction,mercer'),
+  T('manitowish-waters', 'Manitowish Waters', 'Vilas', 'Where the chain begins', 'Manitowish Waters strings ten lakes together by channel and trail. Bike the Heart of Vilas, paddle the Manitowish River, and earn a Friday fish fry on Rest Lake.', 'Rest Lake, Manitowish Lake, Spider Lake', 'Bike trails, fish fries, the Manitowish River', 'Minocqua (25 min)', 'boulder-junction,minocqua,mercer'),
+  T('land-o-lakes', 'Land O’Lakes', 'Vilas', 'Straddling the state line', 'Land O’Lakes sits on the Michigan line beside the Ottawa National Forest. The 17-lake Cisco Chain and an old-school ATV network keep the town busy in every season.', 'Cisco Chain, Lake Mamie, Lac Vieux Desert', 'Cisco Chain, ATV and snowmobile trails, Ottawa National Forest', 'Eagle River (30 min)', 'eagle-river,presque-isle,hurley-ironwood'),
+  T('rhinelander', 'Rhinelander', 'Oneida', 'Home of the Hodag', 'Rhinelander is the region’s working hub and home of the legendary Hodag. Stock up on groceries and gear, then head out to the Wisconsin River and Pelican Lake.', 'Boom Lake, Pelican Lake, Lake Thompson', 'The Hodag, Pioneer Park, the Hodag Country Festival', 'Wausau (60 min)', 'minocqua,eagle-river,land-o-lakes'),
+  T('mercer', 'Mercer', 'Iron', 'Loon Capital of the World', 'Mercer calls itself the Loon Capital of the World, and a 15-foot fiberglass loon backs the claim. Paddle the Turtle-Flambeau Flowage at sunrise, when the call carries for miles.', 'Turtle-Flambeau Flowage, Lake of the Falls, Spider Lake', 'Loons, the Turtle-Flambeau Flowage, quiet paddling', 'Minocqua (35 min)', 'manitowish-waters,presque-isle,hurley-ironwood'),
+  T('hurley-ironwood', 'Hurley / Ironwood', 'Iron / Gogebic', 'Two states, one mining-town main drag', 'Hurley and Ironwood face each other across the Montreal River and the Wisconsin-Michigan line. Old mining-town saloons, Black River waterfalls, and big-hill ski country sit close by.', 'Lake Superior shore, Gile Flowage, Pine Lake', 'Mining history, waterfalls, Gogebic Range skiing', 'Ashland (55 min)', 'mercer,land-o-lakes,manitowish-waters'),
+];
+export const getTown = (slug: string) => towns.find((t) => t.slug === slug);
+export const townName = (slug: string) => getTown(slug)?.name ?? slug;
+// Same town first, then neighboring towns, then the rest.
+export function forTown<T extends { town: string }>(items: T[], town: string, n = 4): T[] {
+  const nb = getTown(town)?.nearby ?? [];
+  const r = (x: T) => (x.town === town ? 0 : nb.includes(x.town) ? 1 : 2);
+  return [...items].sort((a, b) => r(a) - r(b)).slice(0, n);
+}
+towns.forEach((t) => { t.image = img('town-' + t.slug); });
