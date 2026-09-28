@@ -29,7 +29,7 @@ p { max-width: 68ch; } a { color: inherit; }
 .uphome-nav a:hover, .uphome-footer-links a:hover { color: var(--up-orange); }
 .uphome-head-actions { align-items: center; display: flex; flex: none; gap: 13px; }
 .uphome-head-actions button { background: none; border: 0; color: var(--up-ink); cursor: pointer; padding: 7px; }
-.uphome-trip { background: var(--up-pine); border-radius: 3px; color: #fff; font-size: 10px; font-weight: 700; padding: 11px 16px; }
+.uphome-trip, .uphome-trip:visited, .uphome-trip:hover, .uphome-trip:focus-visible { background: var(--up-pine); border-radius: 3px; color: #fff !important; -webkit-text-fill-color: #fff; font-size: 10px; font-weight: 700; padding: 11px 16px; }
 .uphome-trip:hover { background: var(--up-orange); }
 .uphome-mobile-menu { display: none; }
 
