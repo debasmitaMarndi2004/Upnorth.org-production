@@ -46,10 +46,11 @@ p { max-width: 68ch; } a { color: inherit; }
 .uphome-search input::placeholder { color: #7d8d86; }
 .uphome-search button { background: var(--up-pine); border: 0; border-radius: 4px; color: #fff; cursor: pointer; flex: none; font-size: 11px; font-weight: 700; min-height: 40px; padding: 0 24px; white-space: nowrap; }
 .uphome-search button:hover { background: var(--up-orange); }
-.uphome-scribble { bottom: 83px; color: #fff; display: flex; flex-direction: column; font-family: var(--font-fraunces), Georgia, serif; font-size: 24px; font-style: italic; line-height: 1.16; position: absolute; right: 10vw; transform: rotate(-7deg); }
-.uphome-scribble span:nth-child(2) { margin-left: 18px; }
-.uphome-scribble span:nth-child(3) { margin-left: 31px; }
-.uphome-scribble b { font-family: var(--font-work), Arial, sans-serif; font-size: 18px; margin-left: 86px; margin-top: 6px; }
+.uphome-scribble { align-items: flex-start; bottom: 94px; color: #fff; display: flex; flex-direction: column; font-family: var(--font-fraunces), Georgia, serif; font-size: clamp(21px, 2vw, 28px); font-style: italic; line-height: 1.08; position: absolute; right: clamp(28px, 7vw, 108px); text-align: left; transform: rotate(-7deg); }
+.uphome-scribble span { display: block; margin-left: 0; }
+.uphome-scribble span:nth-child(2) { transform: translateX(5px); }
+.uphome-scribble span:nth-child(3) { transform: translateX(2px); }
+.uphome-scribble b { align-self: flex-end; font-family: var(--font-work), Arial, sans-serif; font-size: 18px; margin-top: 7px; }
 .uphome-category-row { align-items: flex-end; bottom: 20px; display: flex; gap: clamp(11px, 2.2vw, 29px); justify-content: center; left: 0; padding: 0 20px; position: absolute; right: 0; z-index: 2; }
 .uphome-category { align-items: center; display: flex; flex-direction: column; position: relative; }
 .uphome-category > span { align-items: center; background: rgba(255,255,255,.94); border-radius: 50%; color: var(--up-pine); display: flex; height: 53px; justify-content: center; transition: transform .2s, background .2s; width: 53px; }
