@@ -36,7 +36,7 @@ p { max-width: 68ch; } a { color: inherit; }
 
 .uphome-hero { color: #fff; min-height: 520px; overflow: hidden; position: relative; }
 .uphome-hero-bg, .uphome-hero-shade { inset: 0; position: absolute; }
-.uphome-hero-bg { background: url('/images/hero.jpg') center 58% / cover; transform: scale(1.02); }
+.uphome-hero-bg { background-image: url('/images/hero-updated.avif'), url('/images/hero.jpg'); background-position: center 58%, center 58%; background-size: cover, cover; transform: scale(1.02); }
 .uphome-hero-shade { background: linear-gradient(90deg, rgba(3, 30, 25, .6), rgba(3, 30, 25, .05) 72%), linear-gradient(0deg, rgba(3, 30, 25, .75), rgba(3, 30, 25, .08) 54%); }
 .uphome-hero-content { margin: 0 auto; max-width: 1250px; padding: 130px 7vw 150px; position: relative; text-align: center; }
 .uphome-hero h1 { color: #fff; font-family: var(--font-fraunces), Georgia, serif; font-size: clamp(50px, 7.1vw, 94px); font-weight: 700; letter-spacing: -.065em; line-height: .95; margin: 0; white-space: nowrap; }
