@@ -40,11 +40,11 @@ p { max-width: 68ch; } a { color: inherit; }
 .uphome-hero-content { margin: 0 auto; max-width: 1250px; padding: 130px 7vw 150px; position: relative; text-align: center; }
 .uphome-hero h1 { color: #fff; font-family: var(--font-fraunces), Georgia, serif; font-size: clamp(50px, 7.1vw, 94px); font-weight: 700; letter-spacing: -.065em; line-height: .95; margin: 0; white-space: nowrap; }
 .uphome-hero-subtitle { color: #faf1ec; font-size: 16px; letter-spacing: .02em; margin: 17px 0 30px; }
-.uphome-search { align-items: center; background: rgba(255,255,255,.97); border-radius: 5px; color: var(--up-ink); display: flex; gap: 11px; margin: 0 auto; max-width: 610px; min-height: 52px; padding: 5px 6px 5px 17px; text-align: left; }
+.uphome-search { align-items: center; background: rgba(255,255,255,.97); border-radius: 5px; color: var(--up-ink); display: flex; gap: 11px; margin: 0 auto; max-width: 610px; min-height: 52px; padding: 5px 6px 5px 17px; text-align: left; width: 100%; }
 .uphome-search svg { color: #60766d; flex: none; }
-.uphome-search input { background: transparent; border: 0; color: var(--up-ink); flex: 1; font-size: 11px; min-width: 0; outline: none; }
+.uphome-search input { background: transparent; border: 0; color: var(--up-ink); flex: 1 1 auto; font-size: 11px; min-width: 0; outline: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .uphome-search input::placeholder { color: #7d8d86; }
-.uphome-search button { background: var(--up-pine); border: 0; border-radius: 4px; color: #fff; cursor: pointer; font-size: 11px; font-weight: 700; min-height: 40px; padding: 0 24px; }
+.uphome-search button { background: var(--up-pine); border: 0; border-radius: 4px; color: #fff; cursor: pointer; flex: none; font-size: 11px; font-weight: 700; min-height: 40px; padding: 0 24px; white-space: nowrap; }
 .uphome-search button:hover { background: var(--up-orange); }
 .uphome-scribble { bottom: 83px; color: #fff; display: flex; flex-direction: column; font-family: var(--font-fraunces), Georgia, serif; font-size: 24px; font-style: italic; line-height: 1.16; position: absolute; right: 10vw; transform: rotate(-7deg); }
 .uphome-scribble span:nth-child(2) { margin-left: 18px; }
@@ -126,7 +126,10 @@ p { max-width: 68ch; } a { color: inherit; }
   .uphome-hero-content { padding: 98px 20px 170px; }
   .uphome-hero h1 { font-size: clamp(42px, 11.6vw, 76px); white-space: normal; }
   .uphome-hero-subtitle { font-size: 13px; margin: 14px 0 22px; }
-  .uphome-scribble { bottom: 112px; font-size: 20px; right: 8vw; }
+  .uphome-scribble { display: none; }
+  .uphome-search { gap: 7px; padding-left: 12px; }
+  .uphome-search input { font-size: 10px; }
+  .uphome-search button { min-height: 38px; padding-left: 14px; padding-right: 14px; }
   .uphome-category-row { gap: 1.9vw; }
   .uphome-category > span { height: 45px; width: 45px; }
   .uphome-category small { font-size: 7px; }
