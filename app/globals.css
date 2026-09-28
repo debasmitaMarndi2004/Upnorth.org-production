@@ -30,6 +30,7 @@ p { max-width: 68ch; } a { color: inherit; }
 .uphome-head-actions { align-items: center; display: flex; flex: none; gap: 13px; }
 .uphome-head-actions button { background: none; border: 0; color: var(--up-ink); cursor: pointer; padding: 7px; }
 .uphome-trip, .uphome-trip:visited, .uphome-trip:hover, .uphome-trip:focus-visible { background: var(--up-pine); border-radius: 3px; color: #fff !important; -webkit-text-fill-color: #fff; font-size: 10px; font-weight: 700; padding: 11px 16px; }
+.uphome-trip-label { color: #fff !important; -webkit-text-fill-color: #fff; }
 .uphome-trip:hover { background: var(--up-orange); }
 .uphome-mobile-menu { display: none; }
 

@@ -61,7 +61,7 @@ export default function Homepage() {
         </nav>
         <div className="uphome-head-actions">
           <button type="button" aria-label="Search" onClick={() => document.getElementById('uphome-search')?.focus()}><Search size={16} strokeWidth={1.8} /></button>
-          <Link href="/explore" className="uphome-trip">Plan Your Trip</Link>
+          <Link href="/explore" className="uphome-trip"><span className="uphome-trip-label">Plan Your Trip</span></Link>
         </div>
         <details className="uphome-mobile-menu"><summary aria-label="Open menu">☰</summary><div>{categories.map(({ label, href }) => <Link key={label} href={href}>{label}</Link>)}</div></details>
       </header>
